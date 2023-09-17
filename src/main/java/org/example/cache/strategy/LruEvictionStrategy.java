@@ -23,7 +23,7 @@ public class LruEvictionStrategy<Key> implements EvictionStrategy<Key>{
 
     @Override
     public void keyAccessed(Key key) {
-        if (map.containsKey(key)){
+        if (map.containsKey(key)) {
             DoublyLinkedListNode<Key> node = map.get(key);
             dll.removeNode(node);
             dll.addNodeToFront(node);

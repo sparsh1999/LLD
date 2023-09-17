@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class SeatLockService {
+    //screen vs locked seats
     Map<String, List<SeatLock>> seatLockMap;
 
     public List<Seat> getLockedSeats(Show show) {

@@ -24,7 +24,8 @@ public class ShowService {
         List<Seat> unavailableSeats = new ArrayList<>();
         unavailableSeats.addAll(bookingService.getBookedSeats(show));
         unavailableSeats.addAll(seatLockService.getLockedSeats(show));
-
+        allSeats.removeAll(unavailableSeats);
+        return allSeats;
     }
 
     public List<Seat> getUnavailableSeats() {
