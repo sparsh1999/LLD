@@ -10,13 +10,11 @@ public class Topic {
     String name;
     @Getter List<Message> messages;
 
+    @Getter List<TopicSubscriber> subscribers;
+
     public Topic(String id, String name){
         this.id = id;
         this.name = name;
         this.messages = new ArrayList<>();
     }
-
-
-
-
 }

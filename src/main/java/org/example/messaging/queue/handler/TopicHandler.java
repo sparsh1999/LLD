@@ -13,12 +13,9 @@ public class TopicHandler {
     Map<String, SubscriberWorker> workerMap;
     Topic topic;
 
-    @Getter
-    List<TopicSubscriber> subscribers;
-
     void publishMessage(Message message) {
         topic.getMessages().add(message);
-        for (TopicSubscriber subscriber : subscribers){
+        for (TopicSubscriber subscriber : topic.getSubscribers()){
             notifyWorker(subscriber);
         }
     }

@@ -18,6 +18,7 @@ public class BookingService {
     }
 
     public List<Seat> getBookedSeats(Show show) {
+        // filter based on show id
         return bookingMap.values().stream()
                 .map(Booking::getBookedSeats)
                 .flatMap(List::stream)

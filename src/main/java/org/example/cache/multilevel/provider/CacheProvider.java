@@ -5,7 +5,7 @@ import org.example.cache.multilevel.models.LevelCacheData;
 import org.example.cache.multilevel.models.ReadResponse;
 import org.example.cache.multilevel.models.WriteResponse;
 
-public class CacheProvider<Key, Value>{
+public class CacheProvider<Key, Value> {
     Cache<Key, Value> curr;
     CacheProvider<Key, Value> next;
     LevelCacheData levelCacheData;
@@ -30,11 +30,11 @@ public class CacheProvider<Key, Value>{
         Value value = curr.get(key);
         totalTime+= levelCacheData.getReadTime();
 
-        if (value==null){
+        if (value==null) {
             if (next!=null) {
                 ReadResponse<Value> response = next.get(key);
                 totalTime+=response.getTotalTime();
-                if (response.getValue()!=null){
+                if (response.getValue()!=null) {
                     value = response.getValue();
                     curr.set(key, value);
                     totalTime+= levelCacheData.getWriteTime();
